@@ -1,0 +1,96 @@
+%SIGNAL
+PIN   9 =  A10 
+PIN  10 =  A11 
+PIN  18 = !CHRADR 
+PIN  19 = !CHRRAM 
+PIN  22 =  INV 
+PIN   3 =  INVCHR 
+PIN  23 =  INVCLK 
+PIN   1 =  INV_CLK 
+PIN  21 =  LUMA 
+PIN  11 =  OSC 
+PIN   2 =  PIXEL 
+PIN   5 =  RGTPIX 
+PIN   4 = !SCRADR 
+PIN  20 = !SCRRAM 
+PIN  14 =  VCLK 
+PIN  15 = !VHOLD 
+PIN   6 =  VIDEN 
+PIN  16 = !VLOAD 
+PIN   7 = !VRAM 
+PIN  17 = !VRAMWR 
+PIN   8 = !WR 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+CHRADR =>
+    SCRRAM
+
+CHRRAM =>
+    !A11 & !SCRADR
+
+INV.d  =>
+    INVCHR & VIDEN
+
+INV.ar  =>
+    0 
+
+INV.sp  =>
+    0 
+
+INVCLK =>
+    RGTPIX & VCLK
+
+LUMA =>
+    INV & PIXEL
+  # !INV & !PIXEL
+
+SCRRAM =>
+    !CHRRAM & !SCRADR
+
+VCLK =>
+    !OSC
+
+VHOLD =>
+    A10 & VIDEN
+
+VLOAD =>
+    RGTPIX & VIDEN
+
+VRAMWR =>
+    !SCRADR & !WR
+
+CHRADR.oe  =>
+    1 
+
+CHRRAM.oe  =>
+    1 
+
+INV.oe  =>
+    1 
+
+INVCLK.oe  =>
+    1 
+
+LUMA.oe  =>
+    1 
+
+SCRRAM.oe  =>
+    1 
+
+VCLK.oe  =>
+    1 
+
+VHOLD.oe  =>
+    1 
+
+VLOAD.oe  =>
+    1 
+
+VRAMWR.oe  =>
+    1 
+
+%END

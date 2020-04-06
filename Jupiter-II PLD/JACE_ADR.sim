@@ -1,0 +1,98 @@
+%SIGNAL
+PIN   7 =  A0 
+PIN   8 =  A12 
+PIN   9 =  A13 
+PIN  10 =  A14 
+PIN  11 =  A15 
+PIN  18 = !CLK 
+PIN   6 =  D3 
+PIN   2 =  H0 
+PIN  13 = !IORQ 
+PIN  15 = !KBDRD 
+PIN  16 =  MIC 
+PIN  23 =  MICCLK 
+PIN   1 =  MIC_CLK 
+PIN  14 = !MREQ 
+PIN  20 = !RAM 
+PIN   4 = !RD 
+PIN  21 = !ROM 
+PIN  17 =  SPKR 
+PIN   3 = !VHOLD 
+PIN  22 = !VRAM 
+PIN  19 = !WAIT 
+PIN   5 = !WR 
+%END
+
+%FIELD
+FIELD ADDRS = A15,A14,A13,A12
+%END
+
+%EQUATION
+CLK =>
+    H0
+
+IOEVEN =>
+    !A0 & IORQ
+
+KBDRD =>
+    !A0 & !IORQ & !RD
+
+MIC.d  =>
+    D3
+
+MIC.ar  =>
+    0 
+
+MIC.sp  =>
+    0 
+
+MICCLK =>
+    !A0 & !IORQ & !WR
+
+RAM =>
+    A12 & A13 & !A14 & !A15 & !MREQ
+
+ROM =>
+    !A13 & !A14 & !A15 & !MREQ
+
+SPKR =>
+    MICCLK & SPKR
+  # !KBDRD & MICCLK
+
+VRAM =>
+    !A12 & A13 & !A14 & !A15 & !MREQ
+
+WAIT =>
+    !VHOLD & !VRAM
+
+CLK.oe  =>
+    1 
+
+KBDRD.oe  =>
+    1 
+
+MIC.oe  =>
+    1 
+
+MICCLK.oe  =>
+    1 
+
+MREQ.oe  =>
+    0 
+
+RAM.oe  =>
+    1 
+
+ROM.oe  =>
+    1 
+
+SPKR.oe  =>
+    1 
+
+VRAM.oe  =>
+    1 
+
+WAIT.oe  =>
+    1 
+
+%END

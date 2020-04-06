@@ -1,0 +1,112 @@
+Name     JII_TIME ;
+PartNo   00 ;
+Date     02/26/2020 ;
+Revision 01 ;
+Designer Ricardo Fernandes Lopes ;
+Company  www.jupiter-ace.co.uk ;
+Assembly None ;
+Location  ;
+Device   g22v10 ;
+
+/* *************** INPUT PINS *********************/
+PIN  1 = H5 ; /* Horizontal Video Counting */
+PIN  2 = H7 ; /* Horizontal Video Counting */
+PIN  3 = H6 ; /* Horizontal Video Counting */
+PIN  4 = H8 ; /* Horizontal Video Counting */
+PIN  5 = H2 ; /* Horizontal Video Counting */
+PIN  6 = H1 ; /* Horizontal Video Counting */
+PIN  7 = H0 ; /* Horizontal Video Counting */
+
+PIN  8 = V5 ; /* Vertical Video Counting */
+PIN  9 = V4 ; /* Vertical Video Counting */
+PIN 10 = V6 ; /* Vertical Video Counting */
+PIN 11 = V3 ; /* Vertical Video Counting */
+              /* pin 12 is GND     */
+PIN 13 = V1 ; /* Vertical Video Counting */
+PIN 14 = V2 ; /* Vertical Video Counting */
+PIN 15 = V8 ; /* Vertical Video Counting */
+PIN 16 = V7 ; /* Vertical Video Counting */
+
+/* *************** OUTPUT PINS *********************/
+                  /* pin 24 is VCC */
+PIN 23 = BLANK  ; /* Video Blanking */
+PIN 22 = !HSYNC ; /* Horizontal Video Sync */
+PIN 21 = !VSYNC ; /* Vertical Video Sync (also Z80 !INT line) */
+PIN 20 = HRST   ; /* Line Count Reset (Horizontal) */
+PIN 19 = VRST   ; /* Field Count Reset (Vertical) */
+PIN 18 = RGTPIX ; /* Right Char Pixel */
+PIN 17 = VIDEN  ; /* Video Frame Enabled */
+
+/* _______________ EQUATIONS ______________________ */
+
+/* Horizontal Counter [H8..H0]
+     |      H[8..0]      |
+count| 8 7 6 5 4 3 2 1 0 | Remarks
+-----+-------------------+------------------------
+   0 | 0 0 0 0 0 0 0 0 0 |[256] Active Line Frame Start
+ 256 | 1 0 0 0 0 0 0 0 0 |[ 64] Right Border start
+ 320 | 1 0 1 0 0 0 0 0 0 |[ 32] H Sync start
+ 352 | 1 0 1 1 0 0 0 0 0 |[ 64] Left Border start
+ 416 | 1 1 0 1 0 0 0 0 0 | Reset Horizontal Counter
+*/
+HSYNC = H8 & !H7 & H6 & !H5 ; /* Horizontal Sync */
+HRST  = H8 & H7 & H5 ;        /* Horizontal Counter Reset */
+
+/* Vertical Counter [V8..V0]
+     |      V[8..0]      |
+count| 8 7 6 5 4 3 2 1 0 | Remarks
+-----+-------------------+------------------------
+   0 | 0 0 0 0 0 0 0 0 0 |[192] Active Frame Start
+ 192 | 0 1 1 0 0 0 0 0 0 |[ 36] Bottom Border start
+ 228 | 0 1 1 1 0 0 1 0 0 |[  4] V Sync start
+ 232 | 0 1 1 1 0 1 0 0 0 |[ 30] Top Border start
+ 262 | 1 0 0 0 0 0 1 1 0 | Reset Vertical Counter
+*/
+VSYNC = V7 & V6 & V5 & !V4 & !V3 & V2 ; /* Vertical Sync */
+VRST  = V8 & V2 & V1 ;                  /* Vertical Counter Reset */
+
+/* Others */
+BLANK = (H8 & !H7 & (H6 # H5)) # (V7 & V6 & V5 & !(V4 & V3)) ;  /* Video Blanking */
+RGTPIX = H2 & H1 & H0 ;           /* Char Right Pixel */
+VIDEN  = !H8 & !V8 & !(V7 & V6) ; /* Video Frame Active */
+
+/* NTSC Video: Vertical Sync = 60 Hz
+   Horizontal Counter Clock = 6.55 MHz
+
+Horizontal Timing: Line Frequency = 15625 Hz
+0                              256           320           352           416
+|           [256 H]             |    [64 H]   |   [32 H]    |   [64 H]    |
+|<----------- 39.1 us --------->|<- 9.77 us ->|<- 4.88 us ->|<- 9.77 us ->|
+|-------------------------------+-------------+-------------+-------------|
+|          32 Character         |    Right    |    HSYNC    |    Left     |
+|             Columns           |    Margin   |             |   Margin    |
+|-------------------------------+-------------+-------------+-------------|
+|            VIDEN = 1          |                VIDEN = 0                |
+
+Vertical Timing: Frame Frequency = 60 Hz
+0                              192           224           232           262
+|            [192 V]            |   [32 V]    |    [8 V]    |   [30 V]    |
+|<---------- 12.2 ms ---------->|<- 2.03 ms ->|<-- 508 us ->|<- 1.90 ms ->|
+|-------------------------------+-------------+-------------+-------------|
+|          24 Character         |   Bottom    |    VSYNC    |     Top     |
+|             Lines             |   Margin    |             |   Margin    |
+|-------------------------------+-------------+-------------+-------------|
+|           VIDEN = 1           |                VIDEN = 0                |
+
+    0                              256   320 352   416
+  0 +-------------------------------+-----+---+-----+ 
+    |                               |     |   |     |
+    |   32 X 24 Character Screen    |     | H |     |
+    |             VIDEN             | Rgt |   | Lft |
+    |        (Video Enabled)        | Mrg | S | Mrg |
+    |                               |     | y |     |
+    |                               |     | n |     |
+192 +-------------------------------+     | c |     |
+    |                 Bottom Margin       |   |     |
+224 +-------------------------------------+---+-----+
+    |                    V Sync           |   |     |
+232 +-------------------------------------+---+-----+
+    |                  Top Margin         |   |     |
+262 +-------------------------------------+---+-----+
+
+*/

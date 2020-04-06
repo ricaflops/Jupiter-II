@@ -1,0 +1,85 @@
+%SIGNAL
+PIN  21 =  BLANK 
+PIN   7 =  H0 
+PIN   6 =  H1 
+PIN   5 =  H2 
+PIN   1 =  H5 
+PIN   3 =  H6 
+PIN   2 =  H7 
+PIN   4 =  H8 
+PIN  20 =  HRST 
+PIN  22 = !HSYNC 
+PIN  18 =  RGTPIX 
+PIN  13 =  V1 
+PIN  14 =  V2 
+PIN  11 =  V3 
+PIN   9 =  V4 
+PIN   8 =  V5 
+PIN  10 =  V6 
+PIN  16 =  V7 
+PIN  15 =  V8 
+PIN  17 =  VIDEN 
+PIN  19 =  VRST 
+PIN  23 = !VSYNC 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+BLANK =>
+    H5 & !H7 & H8
+  # H6 & !H7 & H8
+  # !V4 & V5 & V6 & V7
+  # !V3 & V5 & V6 & V7
+
+HRST =>
+    H5 & H7 & H8
+
+HSYNC =>
+    !H5 & H6 & !H7 & H8
+
+RGTPIX =>
+    H0 & H1 & H2
+
+VIDEN =>
+    !H8 & !V6 & !V8
+  # !H8 & !V7 & !V8
+
+VRST =>
+    V1 & V2 & V8
+
+VSYNC =>
+    V2 & !V3 & !V4 & V5 & V6 & V7
+
+BLANK.oe  =>
+    1 
+
+HRST.oe  =>
+    1 
+
+HSYNC.oe  =>
+    1 
+
+RGTPIX.oe  =>
+    1 
+
+V2.oe  =>
+    0 
+
+V7.oe  =>
+    0 
+
+V8.oe  =>
+    0 
+
+VIDEN.oe  =>
+    1 
+
+VRST.oe  =>
+    1 
+
+VSYNC.oe  =>
+    1 
+
+%END

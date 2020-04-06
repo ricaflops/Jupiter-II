@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Jupiter-II)(type KiCad)(uri ${KIPRJMOD}/Jupiter-II.pretty)(options "")(descr ""))
+)
