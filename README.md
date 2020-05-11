@@ -1,17 +1,19 @@
 # Jupiter-II
 Another Jupiter Ace computer clone.
 
-![Jupiter-II 3D view from Kicad](Jupiter-II.jpg)
+![Jupiter-II KiCAD 3D view](Jupiter-II.jpg)
 
-Main Differences from original:
-* PLDs replacing many TTL logic reducing part count and keeping cost low
-* Additional signals on Expansion connector for simpler video extensions.
-* Using expansion allows two screen pages and two character sets (future project).
-
-**Warning!** Not tested with real hardware, ..yet.
+Main Differences from the original:
+* PLDs replacing several TTL logic
+* Composite video output
+* Additional signals on Expansion connector for easy video extensions
+* Two screen pages and two character sets (selected at video expansion connector)
+* Speaker/Mic outputs modified to match common audio gear
+* Reset button
 
 Tools/formats:
-* Designed with [Kicad](https://www.kicad-pcb.org/).
-* PLD code in CUPL language. Compiled with WinCupl.
+* Designed with free [Kicad](https://www.kicad-pcb.org/)
+* Programmeble Logic Device code in CUPL language
+* CUPL code compiled with WinCupl available for free from [Microchip](https://www.microchip.com/)
 
-More info on Jupiter Ace computer at the great [Jupiter Ace Resource Site](http://jupiter-ace.co.uk/)
+For more information on the Jupiter Ace computer visit the great [Jupiter Ace Resource Site](http://jupiter-ace.co.uk/)
