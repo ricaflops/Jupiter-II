@@ -1,17 +1,17 @@
 
 *******************************************************************************
-                                   JACE_ADR
+                                    JII_ADR
 *******************************************************************************
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Thu Mar 12 21:34:47 2020
-Name            JACE_ADR 
+Created         Sun May 10 22:08:06 2020
+Name            JII_ADR 
 Partno          00 
 Revision        01 
 Date            02/26/2020 
-Designer        Ricardo Fernandes Lopes 
-Company         www.jupiter-ace.co.uk 
+Designer        Ricardo F. Lopes 
+Company         
 Assembly        None 
 Location        
 
@@ -117,9 +117,9 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     MICCLK                      23       V        1       8       1     
     MIC_CLK                     1        V        -       -       -     
  !  MREQ                        14       V        -       -       -     
- !  RAM                         20       V        1       14      1     
+ !  RAM                         21       V        1       12      1     
  !  RD                          4        V        -       -       -     
- !  ROM                         21       V        1       12      1     
+ !  ROM                         20       V        1       14      1     
     SPKR                        17       V        2       14      1     
  !  VHOLD                       3        V        -       -       -     
  !  VRAM                        22       V        1       10      1     
@@ -130,8 +130,8 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     MIC                 oe      16       D        1       1       0     
     MICCLK              oe      23       D        1       1       0     
     MREQ                oe      14       D        1       1       0     
-    RAM                 oe      20       D        1       1       0     
-    ROM                 oe      21       D        1       1       0     
+    RAM                 oe      21       D        1       1       0     
+    ROM                 oe      20       D        1       1       0     
     SPKR                oe      17       D        1       1       0     
     VRAM                oe      22       D        1       1       0     
     WAIT                oe      19       D        1       1       0     
@@ -177,7 +177,7 @@ Pin #22  05810 Mode  x-
  00880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #21  05812 Mode  x- 
  00924 -------------------------------------------- 
- 00968 ---------------------------------x---x-x-x-- 
+ 00968 ----------------------------x---x----x-x-x-- 
  01012 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01056 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01100 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -191,7 +191,7 @@ Pin #21  05812 Mode  x-
  01452 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #20  05814 Mode  x- 
  01496 -------------------------------------------- 
- 01540 ----------------------------x---x----x-x-x-- 
+ 01540 ---------------------------------x---x-x-x-- 
  01584 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01628 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01672 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -303,12 +303,12 @@ LEGEND    X : fuse not blown
 ===============================================================================
 
                                ______________
-                              |   JACE_ADR   |
+                              |   JII_ADR    |
                   MIC_CLK x---|1           24|---x Vcc                      
                        H0 x---|2           23|---x MICCLK                   
                    !VHOLD x---|3           22|---x !VRAM                    
-                      !RD x---|4           21|---x !ROM                     
-                      !WR x---|5           20|---x !RAM                     
+                      !RD x---|4           21|---x !RAM                     
+                      !WR x---|5           20|---x !ROM                     
                        D3 x---|6           19|---x !WAIT                    
                        A0 x---|7           18|---x !CLK                     
                       A12 x---|8           17|---x SPKR                     

@@ -1,5 +1,5 @@
 %SIGNAL
-PIN  21 =  BLANK 
+PIN  23 =  BLANK 
 PIN   7 =  H0 
 PIN   6 =  H1 
 PIN   5 =  H2 
@@ -20,7 +20,7 @@ PIN  16 =  V7
 PIN  15 =  V8 
 PIN  17 =  VIDEN 
 PIN  19 =  VRST 
-PIN  23 = !VSYNC 
+PIN  21 = !VSYNC 
 %END
 
 %FIELD

@@ -1,17 +1,17 @@
 
 *******************************************************************************
-                                  JACE_VIDEO
+                                   JII_VIDEO
 *******************************************************************************
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Fri Mar 06 11:43:41 2020
-Name            JACE_VIDEO 
+Created         Sun May 10 22:10:00 2020
+Name            JII_VIDEO 
 Partno          00 
 Revision        01 
 Date            02/26/2020 
 Designer        Ricardo Fernandes Lopes 
-Company         www.jupiter-ace.co.uk 
+Company         
 Assembly        None 
 Location        
 
@@ -297,7 +297,7 @@ LEGEND    X : fuse not blown
 ===============================================================================
 
                                ______________
-                              |  JACE_VIDEO  |
+                              |  JII_VIDEO   |
                   INV_CLK x---|1           24|---x Vcc                      
                     PIXEL x---|2           23|---x INVCLK                   
                    INVCHR x---|3           22|---x INV                      

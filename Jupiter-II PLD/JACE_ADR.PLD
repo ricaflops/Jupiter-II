@@ -2,13 +2,13 @@ Name     JII_ADR ;
 PartNo   00 ;
 Date     02/26/2020 ;
 Revision 01 ;
-Designer Ricardo Fernandes Lopes ;
-Company  www.jupiter-ace.co.uk ;
+Designer Ricardo F. Lopes ;
+Company   ;
 Assembly None ;
 Location  ;
 Device   g22v10 ;
 
-/* *************** INPUT PINS *********************/
+/* *************** INPUT PINS ******************** */
 PIN  1 = MIC_CLK ; /* D-FlipFlop Clk: connect to MICCLK */
 PIN  2 = H0 ;      /* 3.276 MHz */
 PIN  3 = !VHOLD ;  /* Video Hold when Video Circuit Priority */
@@ -17,13 +17,13 @@ PIN  5 = !WR ;     /* CPU Write Enable */
 PIN  6 = D3 ;      /* CPU Data Bus: D3 */
 PIN  7 = A0 ;      /* CPU Address Line A0 */
 PIN [8..11] = [A12..15] ; /* CPU Address Address lines */
-                   /* PIN 12 is GND */
+                   /* PIN 12 = GND */
 PIN 13 = !IORQ ;   /* CPU I/O Request */
 PIN 14 = !MREQ ;   /* CPU Memory Request */
 
 
-/* *************** OUTPUT PINS *********************/
-/* pin 24 is VCC */
+/* *************** OUTPUT PINS ******************** */
+                  /* pin 24 = VCC */
 PIN 23 = MICCLK ; /* MIC.CLK output: connect to MIC_CLK input */
 PIN 22 = !VRAM ;  /* Video RAM Access */
 PIN 21 = !RAM ;   /* RAM Enable */
@@ -35,7 +35,7 @@ PIN 16 = MIC ;    /* Tape Mic Out (D-FlipFlop out) */
 PIN 15 = !KBDRD ; /* Keyboard Read Enable */
 
 
-/* _______________ DEFINITIONS __________________*/
+/* _______________ DEFINITIONS __________________ */
 FIELD ADDRS = [A15..12] ; /* Z80 CPU Address lines */
 
 /* _______________ EQUATIONS ___________________ */
@@ -53,14 +53,14 @@ MICCLK = IOEVEN & WR ; /* Latch MIC Data bit */
 WAIT = VRAM & VHOLD ; /* CPU Wait: Video circuit priority */
 CLK  = H0 ;           /* CPU Clock */
 
-/* Speaker Output from SR flip-flop:  Q = !( SET & !( !Q & !RST)) */
+/* Speaker Output using a SR type Flip-flop:  Q = !( SET & !( !Q & !RST)) */
 SPKR = !( MICCLK & !( !SPKR & !KBDRD)) ; /* Speaker Output (SR flip-flop) */
 /* Alternative design: */
 /*    Q = !(RST # QBAR) */
 /*    QBAR = !(SET # Q) */
 
-/* Tape MIC output latch from D type Flip-flop */
-/* MIC.CLK = MICCLK (wired externally) */
-MIC.D  = D3 ;
-MIC.AR = 'b'0 ;  /* RESET  not active */
-MIC.SP = 'b'0 ;  /* PRESET not active */
+/* Tape MIC output latch using a D type Flip-flop */
+                 /* Clock  = MICCLK (externally wired) */
+MIC.D  = D3 ;    /* Data   = CPU D3 data line */
+MIC.AR = 'b'0 ;  /* Reset  = not active */
+MIC.SP = 'b'0 ;  /* Preset = not active */

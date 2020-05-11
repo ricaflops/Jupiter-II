@@ -1,13 +1,13 @@
 
 CUPL(WM)        5.0a  Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Fri Mar 06 11:43:41 2020
-Name            JACE_VIDEO 
+Created         Sun May 10 22:10:00 2020
+Name            JII_VIDEO 
 Partno          00 
 Revision        01 
 Date            02/26/2020 
 Designer        Ricardo Fernandes Lopes 
-Company         www.jupiter-ace.co.uk 
+Company         
 Assembly        None 
 Location        
 *QP24 
@@ -57,4 +57,4 @@ Location
 *L05792 00000000000000001110111111010101
 *L05824 01110011000000110000001000000000
 *C74F9
-*A1D4
+*9991

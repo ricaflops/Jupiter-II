@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Tue Mar 31 21:15:39 2020 "}
+  {DBtime "Sun May 10 22:09:53 2020 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -52,9 +52,9 @@
    {P RGTPIX {Pt "I/O"}{Lq 0}{Ploc 280 40}}
    {P VRST {Pt "I/O"}{Lq 0}{Ploc 280 60}}
    {P HRST {Pt "I/O"}{Lq 0}{Ploc 280 80}}
-   {P BLANK {Pt "I/O"}{Lq 0}{Ploc 280 100}}
+   {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 280 100}}
    {P HSYNC' {Pt "I/O"}{Lq 0}{Ploc 280 120}}
-   {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 280 140}}
+   {P BLANK {Pt "I/O"}{Lq 0}{Ploc 280 140}}
   }
 
   {PKG
@@ -116,11 +116,11 @@
    {L 250 40 280 40}
    {L 250 60 280 60}
    {L 250 80 280 80}
-   {L 250 100 280 100}
+   {C 255 100 5}
+   {L 260 100 280 100}
    {C 255 120 5}
    {L 260 120 280 120}
-   {C 255 140 5}
-   {L 260 140 280 140}
+   {L 250 140 280 140}
    [Ly "PINNAM"]
    [Tj "LC"]
    {T "H5" 140 320}
@@ -143,9 +143,9 @@
    {T "RGTPIX" 240 40}
    {T "VRST" 240 60}
    {T "HRST" 240 80}
-   {T "BLANK" 240 100}
+   {T "VSYNC'" 240 100}
    {T "HSYNC'" 240 120}
-   {T "VSYNC'" 240 140}
+   {T "BLANK" 240 140}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "G22V10" 190 -10}
@@ -207,11 +207,11 @@
    }
    {N HRST
    }
-   {N BLANK
+   {N VSYNC'
    }
    {N HSYNC'
    }
-   {N VSYNC'
+   {N BLANK
    }
   }
 

@@ -1,11 +1,11 @@
-{COMPONENT C:\USERS\RRR_L\DOCUMENTS\PROJETOS_ELETRONICA\JUPITERACE\JUPITER ACE\PLD\JACE_ADR.SYM
+{COMPONENT C:\USERS\RRR_L\DOCUMENTS\PROJETOS_ELETRONICA\JUPITERACE\JUPITER-II\JUPITER-II PLD\JACE_ADR.SYM
 
  {ENVIRONMENT
   {PDIFvrev 3.00}
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Thu Mar 12 21:34:47 2020 "}
+  {DBtime "Sun May 10 22:08:06 2020 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -50,8 +50,8 @@
    {P SPKR {Pt "I/O"}{Lq 0}{Ploc 330 40}}
    {P CLK' {Pt "I/O"}{Lq 0}{Ploc 330 60}}
    {P WAIT' {Pt "I/O"}{Lq 0}{Ploc 330 80}}
-   {P RAM' {Pt "I/O"}{Lq 0}{Ploc 330 100}}
-   {P ROM' {Pt "I/O"}{Lq 0}{Ploc 330 120}}
+   {P ROM' {Pt "I/O"}{Lq 0}{Ploc 330 100}}
+   {P RAM' {Pt "I/O"}{Lq 0}{Ploc 330 120}}
    {P VRAM' {Pt "I/O"}{Lq 0}{Ploc 330 140}}
    {P MICCLK {Pt "I/O"}{Lq 0}{Ploc 330 160}}
    {P MIC {Pt "OUTPUT"}{Lq 0}{Ploc 330 180}}
@@ -150,8 +150,8 @@
    {T "SPKR" 290 40}
    {T "CLK'" 290 60}
    {T "WAIT'" 290 80}
-   {T "RAM'" 290 100}
-   {T "ROM'" 290 120}
+   {T "ROM'" 290 100}
+   {T "RAM'" 290 120}
    {T "VRAM'" 290 140}
    {T "MICCLK" 290 160}
    {T "MIC" 290 180}
@@ -168,7 +168,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD C:\USERS\RRR_L\DOCUMENTS\PROJETOS_ELETRONICA\JUPITERACE\JUPITER ACE\PLD\JACE_ADR 215 300}
+    {At PLD C:\USERS\RRR_L\DOCUMENTS\PROJETOS_ELETRONICA\JUPITERACE\JUPITER-II\JUPITER-II PLD\JACE_ADR 215 300}
    }
   }
  }
@@ -212,9 +212,9 @@
    }
    {N WAIT'
    }
-   {N RAM'
-   }
    {N ROM'
+   }
+   {N RAM'
    }
    {N VRAM'
    }

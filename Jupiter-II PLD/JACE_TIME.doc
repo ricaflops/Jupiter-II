@@ -5,13 +5,13 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Tue Mar 31 21:15:39 2020
+Created         Sun May 10 22:09:53 2020
 Name            JII_TIME 
 Partno          00 
 Revision        01 
 Date            02/26/2020 
 Designer        Ricardo Fernandes Lopes 
-Company         www.jupiter-ace.co.uk 
+Company         
 Assembly        None 
 Location        
 
@@ -83,7 +83,7 @@ Pin Variable                                    Pterms   Max     Min
 Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
 --- --------            ---     ---     ----    ------  ------  -----   
 
-    BLANK                       21       V        4       12      1     
+    BLANK                       23       V        4       8       1     
     H0                          7        V        -       -       -     
     H1                          6        V        -       -       -     
     H2                          5        V        -       -       -     
@@ -104,8 +104,8 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     V8                          15       V        -       -       -     
     VIDEN                       17       V        2       14      1     
     VRST                        19       V        1       16      1     
- !  VSYNC                       23       V        1       8       1     
-    BLANK               oe      21       D        1       1       0     
+ !  VSYNC                       21       V        1       12      1     
+    BLANK               oe      23       D        1       1       0     
     HRST                oe      20       D        1       1       0     
     HSYNC               oe      22       D        1       1       0     
     RGTPIX              oe      18       D        1       1       0     
@@ -114,7 +114,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     V8                  oe      15       D        1       1       0     
     VIDEN               oe      17       D        1       1       0     
     VRST                oe      19       D        1       1       0     
-    VSYNC               oe      23       D        1       1       0     
+    VSYNC               oe      21       D        1       1       0     
 
 
 LEGEND    D : default variable         F : field      G : group
@@ -133,12 +133,12 @@ SP
 AR 
  00000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 
-Pin #23  05808 Mode  x- 
+Pin #23  05808 Mode  -- 
  00044 -------------------------------------------- 
- 00088 ----------------------------x-x--x--x-x--x-- 
- 00132 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
- 00176 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
- 00220 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00088 x----x------x------------------------------- 
+ 00132 -----x--x---x------------------------------- 
+ 00176 ----------------------------x-x--x--x------- 
+ 00220 ----------------------------x-x-----x----x-- 
  00264 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  00308 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  00352 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -155,12 +155,12 @@ Pin #22  05810 Mode  x-
  00792 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  00836 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  00880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
-Pin #21  05812 Mode  -- 
+Pin #21  05812 Mode  x- 
  00924 -------------------------------------------- 
- 00968 x----x------x------------------------------- 
- 01012 -----x--x---x------------------------------- 
- 01056 ----------------------------x-x--x--x------- 
- 01100 ----------------------------x-x-----x----x-- 
+ 00968 ----------------------------x-x--x--x-x--x-- 
+ 01012 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01056 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01100 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01144 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01188 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01232 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -285,9 +285,9 @@ LEGEND    X : fuse not blown
                                ______________
                               |   JII_TIME   |
                        H5 x---|1           24|---x Vcc                      
-                       H7 x---|2           23|---x !VSYNC                   
+                       H7 x---|2           23|---x BLANK                    
                        H6 x---|3           22|---x !HSYNC                   
-                       H8 x---|4           21|---x BLANK                    
+                       H8 x---|4           21|---x !VSYNC                   
                        H2 x---|5           20|---x HRST                     
                        H1 x---|6           19|---x VRST                     
                        H0 x---|7           18|---x RGTPIX                   

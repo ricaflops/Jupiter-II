@@ -3,12 +3,12 @@ PartNo   00 ;
 Date     02/26/2020 ;
 Revision 01 ;
 Designer Ricardo Fernandes Lopes ;
-Company  www.jupiter-ace.co.uk ;
+Company   ;
 Assembly None ;
 Location  ;
 Device   g22v10 ;
 
-/* *************** INPUT PINS *********************/
+/* *************** INPUT PINS ******************** */
 PIN  1 = H5 ; /* Horizontal Video Counting */
 PIN  2 = H7 ; /* Horizontal Video Counting */
 PIN  3 = H6 ; /* Horizontal Video Counting */
@@ -21,14 +21,14 @@ PIN  8 = V5 ; /* Vertical Video Counting */
 PIN  9 = V4 ; /* Vertical Video Counting */
 PIN 10 = V6 ; /* Vertical Video Counting */
 PIN 11 = V3 ; /* Vertical Video Counting */
-              /* pin 12 is GND     */
+              /* pin 12 = GND     */
 PIN 13 = V1 ; /* Vertical Video Counting */
 PIN 14 = V2 ; /* Vertical Video Counting */
 PIN 15 = V8 ; /* Vertical Video Counting */
 PIN 16 = V7 ; /* Vertical Video Counting */
 
-/* *************** OUTPUT PINS *********************/
-                  /* pin 24 is VCC */
+/* *************** OUTPUT PINS ******************** */
+                  /* pin 24 = VCC */
 PIN 23 = BLANK  ; /* Video Blanking */
 PIN 22 = !HSYNC ; /* Horizontal Video Sync */
 PIN 21 = !VSYNC ; /* Vertical Video Sync (also Z80 !INT line) */
@@ -38,9 +38,10 @@ PIN 18 = RGTPIX ; /* Right Char Pixel */
 PIN 17 = VIDEN  ; /* Video Frame Enabled */
 
 /* _______________ EQUATIONS ______________________ */
-
-/* Horizontal Counter [H8..H0]
-     |      H[8..0]      |
+/* Horizontal Counter [H8..H0] */
+HSYNC = H8 & !H7 & H6 & !H5 ; /* Horizontal Sync */
+HRST  = H8 & H7 & H5 ;        /* Horizontal Counter Reset */
+/*   |      H[8..0]      |
 count| 8 7 6 5 4 3 2 1 0 | Remarks
 -----+-------------------+------------------------
    0 | 0 0 0 0 0 0 0 0 0 |[256] Active Line Frame Start
@@ -49,11 +50,11 @@ count| 8 7 6 5 4 3 2 1 0 | Remarks
  352 | 1 0 1 1 0 0 0 0 0 |[ 64] Left Border start
  416 | 1 1 0 1 0 0 0 0 0 | Reset Horizontal Counter
 */
-HSYNC = H8 & !H7 & H6 & !H5 ; /* Horizontal Sync */
-HRST  = H8 & H7 & H5 ;        /* Horizontal Counter Reset */
 
-/* Vertical Counter [V8..V0]
-     |      V[8..0]      |
+/* Vertical Counter [V8..V0] */
+VSYNC = V7 & V6 & V5 & !V4 & !V3 & V2 ; /* Vertical Sync */
+VRST  = V8 & V2 & V1 ;                  /* Vertical Counter Reset */
+/*   |      V[8..0]      |
 count| 8 7 6 5 4 3 2 1 0 | Remarks
 -----+-------------------+------------------------
    0 | 0 0 0 0 0 0 0 0 0 |[192] Active Frame Start
@@ -62,10 +63,8 @@ count| 8 7 6 5 4 3 2 1 0 | Remarks
  232 | 0 1 1 1 0 1 0 0 0 |[ 30] Top Border start
  262 | 1 0 0 0 0 0 1 1 0 | Reset Vertical Counter
 */
-VSYNC = V7 & V6 & V5 & !V4 & !V3 & V2 ; /* Vertical Sync */
-VRST  = V8 & V2 & V1 ;                  /* Vertical Counter Reset */
 
-/* Others */
+/* Video */
 BLANK = (H8 & !H7 & (H6 # H5)) # (V7 & V6 & V5 & !(V4 & V3)) ;  /* Video Blanking */
 RGTPIX = H2 & H1 & H0 ;           /* Char Right Pixel */
 VIDEN  = !H8 & !V8 & !(V7 & V6) ; /* Video Frame Active */

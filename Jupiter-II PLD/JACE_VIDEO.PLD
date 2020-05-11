@@ -3,12 +3,12 @@ PartNo   00 ;
 Date     02/26/2020 ;
 Revision 01 ;
 Designer Ricardo Fernandes Lopes ;
-Company  www.jupiter-ace.co.uk ;
+Company   ;
 Assembly None ;
 Location  ;
 Device   g22v10 ;
 
-/* *************** INPUT PINS *********************/
+/* *************** INPUT PINS ******************** */
 PIN  1 = INV_CLK ; /* D flip-flop clock input (connect to INVCLK) */
 PIN  2 = PIXEL   ; /* Pixel from Video Shift Register */
 PIN  3 = INVCHR  ; /* Inverse Character Flag from Screen RAM */
@@ -20,12 +20,12 @@ PIN  8 = !WR     ; /* Z80 CPU Write Enable */
 PIN  9 = A10     ; /* Z80 CPU Address line */
 PIN 10 = A11     ; /* Z80 CPU Address line */
 PIN 11 = OSC     ; /* Main Clock */
-                   /* pin 12 is GND */
+                   /* pin 12 = GND */
 /* PIN 13 = unused */
 
-/* *************** OUTPUT PINS *********************/
-                   /* pin 24 is VCC */
-PIN 23 = INVCLK  ; /* Background Load: feeds BLGCLK input               */
+/* *************** OUTPUT PINS ******************** */
+                   /* pin 24 = VCC */
+PIN 23 = INVCLK  ; /* Background Load: feeds BLGCLK input */
 PIN 22 = INV     ; /* Character Background */
 PIN 21 = LUMA	 ; /* Video Luminance */
 PIN 20 = !SCRRAM ; /* Screen RAM Enable */
@@ -37,22 +37,19 @@ PIN 15 = !VHOLD  ; /* Video Priority mechanism */
 PIN 14 = VCLK    ; /* Video Clock */
 
 /* _______________ EQUATIONS _____________________ */
-
+VCLK = !OSC ;                 /* Video Clock */
 CHRRAM = !(SCRADR & !A11) ;   /* Char Set RAM Enable */
 SCRRAM = !(SCRADR & CHRRAM) ; /* Screen RAM Enable */
 CHRADR = !SCRRAM ;            /* Char Set RAM CPU Addressing */
-
 VRAMWR = SCRADR & WR ;        /* Char and Screen RAM Write Enable */
+VLOAD  = VIDEN & RGTPIX ;     /* Load Video Shift Register */
+VHOLD  = VIDEN & A10 ;        /* Video memory busy */
+LUMA   = PIXEL $ INV ;        /* Video Luminance (Video Pixel On) */
+INVCLK = RGTPIX & VCLK ;      /* Inverse character latch */
+/* Inverse character latch using a D type Flip-Flop
+                         /* Clock   = INVCLK (externally wired) */
+INV.D = VIDEN & INVCHR ; /* Data    = Inverse Character flag */
+INV.AR = 'b'0 ;          /* Reset   = Reset not active */
+INV.SP = 'b'0 ;          /* Preseet = Preset not active */
 
-VLOAD = VIDEN & RGTPIX ;      /* Load Video Shift Register */
-VHOLD = VIDEN & A10 ;
 
-VCLK = !OSC ;
-
-INVCLK = RGTPIX & VCLK ; /* Inverse Character D flip-flop clock */
-/* INV.CLK = INVCLK (externally wired) */
-INV.D = VIDEN & INVCHR ; /* Inverse Character Flag */
-INV.AR = 'b'0 ;  /* D Flip-flop RESET  not active */
-INV.SP = 'b'0 ;  /* D Flip-flop PRESET not active */
-
-LUMA = PIXEL $ INV ;     /* Video Luminance (Video Pixel On) */
