@@ -45,21 +45,17 @@ VRAM = MREQ & ADDRS:[2000..2FFF] ; /* 4K Video RAM Addressing */
 RAM  = MREQ & ADDRS:[3000..3FFF] ; /* 4K RAM Addressing */
 
 /* I/O Addressing */
-IOEVEN = IORQ & !A0 ;  /* Even I/O Addressing */
-KBDRD  = IOEVEN & RD ; /* Read Keyboard */
-MICCLK = IOEVEN & WR ; /* Latch MIC Data bit */ 
+KBDRD  = IORQ & RD & !A0 ; /* Read Keyboard */
+MICCLK = IORQ & WR & !A0 ; /* Latch MIC Data bit */ 
 
 /* CPU signals */
 WAIT = VRAM & VHOLD ; /* CPU Wait: Video circuit priority */
 CLK  = H0 ;           /* CPU Clock */
 
-/* Speaker Output using a SR type Flip-flop:  Q = !( SET & !( !Q & !RST)) */
-SPKR = !( MICCLK & !( !SPKR & !KBDRD)) ; /* Speaker Output (SR flip-flop) */
-/* Alternative design: */
-/*    Q = !(RST # QBAR) */
-/*    QBAR = !(SET # Q) */
+/* Speaker Output using a SR-type flip flop: Q = !Q & S # Q & !R */
+SPKR = !SPKR & MICCLK # SPKR & !KBDRD ;
 
-/* Tape MIC output latch using a D type Flip-flop */
+/* Tape MIC output latch using a D-type flip flop */
                  /* Clock  = MICCLK (externally wired) */
 MIC.D  = D3 ;    /* Data   = CPU D3 data line */
 MIC.AR = 'b'0 ;  /* Reset  = not active */
