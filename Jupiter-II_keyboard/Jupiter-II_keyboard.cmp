@@ -1,0 +1,411 @@
+Cmp-Mod V01 Created by PcbNew   date = 14/05/2020 15:08:12
+
+BeginCmp
+TimeStamp = 5EBDB576
+Path = /60F4770E
+Reference = SW40;
+ValeurCmp = SPACE;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACB0B
+Path = /60F47708
+Reference = SW39;
+ValeurCmp = M;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACB08
+Path = /60F47702
+Reference = SW38;
+ValeurCmp = N;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACB05
+Path = /60F476FC
+Reference = SW37;
+ValeurCmp = B;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACB02
+Path = /60F476F6
+Reference = SW36;
+ValeurCmp = V;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAFF
+Path = /60F476F0
+Reference = SW35;
+ValeurCmp = C;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBAEEF0
+Path = /60F476EA
+Reference = SW34;
+ValeurCmp = X;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBB281C
+Path = /60F476E4
+Reference = SW33;
+ValeurCmp = Z;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAF6
+Path = /60F476DE
+Reference = SW32;
+ValeurCmp = SYMBOL;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBB4EBC
+Path = /60F476D8
+Reference = SW31;
+ValeurCmp = SHIFT;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAF0
+Path = /60F29AD8
+Reference = SW30;
+ValeurCmp = ENTER;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAED
+Path = /60F29AD2
+Reference = SW29;
+ValeurCmp = L;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAEA
+Path = /60F29ACC
+Reference = SW28;
+ValeurCmp = K;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAE7
+Path = /60F29AC6
+Reference = SW27;
+ValeurCmp = J;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAE4
+Path = /60F29AC0
+Reference = SW26;
+ValeurCmp = H;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAE1
+Path = /60F29ABA
+Reference = SW25;
+ValeurCmp = G;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBDB31A
+Path = /60F29AB4
+Reference = SW24;
+ValeurCmp = F;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACADB
+Path = /60F29AAE
+Reference = SW23;
+ValeurCmp = D;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAD8
+Path = /60F29AA8
+Reference = SW22;
+ValeurCmp = S;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAD5
+Path = /60F29AA2
+Reference = SW21;
+ValeurCmp = A;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAD2
+Path = /60F0C22E
+Reference = SW20;
+ValeurCmp = P;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACACF
+Path = /60F0C228
+Reference = SW19;
+ValeurCmp = O;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACACC
+Path = /60F0C222
+Reference = SW18;
+ValeurCmp = I;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAC9
+Path = /60F0C21C
+Reference = SW17;
+ValeurCmp = U;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAC6
+Path = /60F0C216
+Reference = SW16;
+ValeurCmp = Y;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAC3
+Path = /60F0C210
+Reference = SW15;
+ValeurCmp = T;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAC0
+Path = /60F0C20A
+Reference = SW14;
+ValeurCmp = R;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACABD
+Path = /60F0C204
+Reference = SW13;
+ValeurCmp = E;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBDA28A
+Path = /60F0C1FE
+Reference = SW12;
+ValeurCmp = W;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAB7
+Path = /60F0C1F8
+Reference = SW11;
+ValeurCmp = Q;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAB4
+Path = /60EFD715
+Reference = SW10;
+ValeurCmp = 0;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAB1
+Path = /60EFD2F1
+Reference = SW9;
+ValeurCmp = 9;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAAE
+Path = /60EFC662
+Reference = SW8;
+ValeurCmp = 8;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAAB
+Path = /60EFC0D7
+Reference = SW7;
+ValeurCmp = 7;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAA8
+Path = /60EFBBBF
+Reference = SW6;
+ValeurCmp = 6;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACAA5
+Path = /60EFB69A
+Reference = SW5;
+ValeurCmp = 5;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBDAE8F
+Path = /60EFB449
+Reference = SW4;
+ValeurCmp = 4;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA9F
+Path = /60EFB094
+Reference = SW3;
+ValeurCmp = 3;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBDA06D
+Path = /60EFAC33
+Reference = SW2;
+ValeurCmp = 2;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBB2467
+Path = /60EEFE2A
+Reference = SW1;
+ValeurCmp = 1;
+IdModule  = Buttons_Switches_THT:SW_PUSH_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA7B
+Path = /5ED48628
+Reference = D1;
+ValeurCmp = LED_ALT;
+IdModule  = LEDs:LED_1206_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBD9F8D
+Path = /5E856148
+Reference = J1;
+ValeurCmp = Conn_02x08_Odd_Even;
+IdModule  = Connectors_Multicomp:Multicomp_MC9A12-1634_2x08x2.54mm_Straight;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA96
+Path = /5ED49BB4
+Reference = R1;
+ValeurCmp = 1k2;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA93
+Path = /5ED4D35C
+Reference = H8;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA90
+Path = /5ED4D105
+Reference = H7;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA8D
+Path = /5ED4CE0F
+Reference = H6;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA8A
+Path = /5ED4C907
+Reference = H5;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA87
+Path = /5ED4C610
+Reference = H4;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA84
+Path = /5ED4C42A
+Reference = H3;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBB6DD0
+Path = /5ED4BFAD
+Reference = H2;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBACA7E
+Path = /5ED4A2FD
+Reference = H1;
+ValeurCmp = MountingHole;
+IdModule  = Mounting_Holes:MountingHole_3.2mm_M3;
+EndCmp
+
+EndListe
