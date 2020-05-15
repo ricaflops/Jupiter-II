@@ -39,40 +39,58 @@ PIN 17 = VIDEN  ; /* Video Frame Enabled */
 
 /* _______________ EQUATIONS ______________________ */
 /* Horizontal Counter [H8..H0] */
-HSYNC = H8 & !H7 & H6 & !H5 ; /* Horizontal Sync */
-HRST  = H8 & H7 & H5 ;        /* Horizontal Counter Reset */
-/*   |      H[8..0]      |
-count| 8 7 6 5 4 3 2 1 0 | Remarks
+HSYNC  = H8 & !H7 & H6 & !H5 ;  /* Horizontal Sync pulse */
+HBLANK = H8 & !H7 & (H6 # H5) ; /* Video Line Blanking */
+HRST   = H8 & H7 & H5 ;         /* Horizontal Counter Reset */
+/*   |      H[8..0]      | Horizontal Counting
+count| 8 7 6 5 4 3 2 1 0 |[length] Remarks
 -----+-------------------+------------------------
-   0 | 0 0 0 0 0 0 0 0 0 |[256] Active Line Frame Start
- 256 | 1 0 0 0 0 0 0 0 0 |[ 64] Right Border start
- 320 | 1 0 1 0 0 0 0 0 0 |[ 32] H Sync start
- 352 | 1 0 1 1 0 0 0 0 0 |[ 64] Left Border start
- 416 | 1 1 0 1 0 0 0 0 0 | Reset Horizontal Counter
+   0 | 0 0 0 0 0 0 0 0 0 |[256] Begin line pixels stream
+ 256 | 1 0 0 0 0 0 0 0 0 |[ 32] end pixels & begin line right border
+ 288 | 1 0 0 1 0 0 0 0 0 |[ 32] End border & begin line blanking
+ 320 | 1 0 1 0 0 0 0 0 0 |[ 32] Begin H sync pulse & continue blanking
+ 352 | 1 0 1 1 0 0 0 0 0 |[ 32] End H sync & continue blanking
+ 384 | 1 1 0 0 0 0 0 0 0 |[ 32] End blanking & begin line left border
+ 416 | 1 1 0 1 0 0 0 0 0 | End border & Reset horizontal counter
 */
 
 /* Vertical Counter [V8..V0] */
-VSYNC = V7 & V6 & V5 & !V4 & !V3 & V2 ; /* Vertical Sync */
-VRST  = V8 & V2 & V1 ;                  /* Vertical Counter Reset */
-/*   |      V[8..0]      |
-count| 8 7 6 5 4 3 2 1 0 | Remarks
+VSYNC = V7 & V6 & V5 & !V4 & !V3 & !V2 ; /* Vertical Sync pulse */
+VBLANK = V7 & V6 & ( (V5 & !(V4 & V3)) # (!V5 & V4 & V3 & V2) ) ; /* Video Frame Blanking */
+VRST  = V8 & V2 & V1 ;                   /* Vertical Counting Reset */
+/*   |      V[8..0]      | Vertical Counting
+count| 8 7 6 5 4 3 2 1 0 |[length] Remarks
 -----+-------------------+------------------------
-   0 | 0 0 0 0 0 0 0 0 0 |[192] Active Frame Start
- 192 | 0 1 1 0 0 0 0 0 0 |[ 36] Bottom Border start
- 228 | 0 1 1 1 0 0 1 0 0 |[  4] V Sync start
- 232 | 0 1 1 1 0 1 0 0 0 |[ 30] Top Border start
- 262 | 1 0 0 0 0 0 1 1 0 | Reset Vertical Counter
+   0 | 0 0 0 0 0 0 0 0 0 |[192] Begin frame active lines
+ 192 | 0 1 1 0 0 0 0 0 0 |[ 28] End active frame & begin bottom border
+ 220 | 0 1 1 0 1 1 1 0 0 |[  4] End border & begin V blanking
+ 224 | 0 1 1 1 0 0 0 0 0 |[  4] Begin V sync pulse & continue blanking
+ 228 | 0 1 1 1 0 0 1 0 0 |[ 20] End V sync & continue blanking
+ 248 | 0 1 1 1 1 1 0 0 0 |[ 14] End blanking & begin top border
+ 262 | 1 0 0 0 0 0 1 1 0 | End border & Reset vertical counter
 */
 
-/* Video */
-BLANK = (H8 & !H7 & (H6 # H5)) # (V7 & V6 & V5 & !(V4 & V3)) ;  /* Video Blanking */
-RGTPIX = H2 & H1 & H0 ;           /* Char Right Pixel */
-VIDEN  = !H8 & !V8 & !(V7 & V6) ; /* Video Frame Active */
+BLANK = HBLANK # VBLANK ;         /* Combined Video Blanking */
+RGTPIX = H2 & H1 & H0 ;           /* Right character pixel column*/
+VIDEN  = !H8 & !V8 & !(V7 & V6) ; /* Video frame active */
 
 /* NTSC Video: Vertical Sync = 60 Hz
-   Horizontal Counter Clock = 6.55 MHz
 
-Horizontal Timing: Line Frequency = 15625 Hz
+    0  Horiz counter           256      320 352      416
+  0 +---------------------------+--------+---+--------+ 
+V   |          32 X 24          |        | H |        |
+e c |     Character Screen      | Right  |   |  Left  |
+r n |           VIDEN           |        | s |        |
+t t |      (Video Active)       | Margin | y | Margin |
+192 +---------------------------+        | n |        |
+    |           Bottom Margin            | c |        |
+224 +------------------------------------+---+--------+
+    |              V Sync                |   |        |
+228 +------------------------------------+---+--------+
+    |            Top Margin              |   |        |
+262 +------------------------------------+---+--------+
+
+Horizontal Counting: clock = 6.55 MHz, Line frequency = 15625 Hz
 0                              256           320           352           416
 |           [256 H]             |    [64 H]   |   [32 H]    |   [64 H]    |
 |<----------- 39.1 us --------->|<- 9.77 us ->|<- 4.88 us ->|<- 9.77 us ->|
@@ -82,30 +100,13 @@ Horizontal Timing: Line Frequency = 15625 Hz
 |-------------------------------+-------------+-------------+-------------|
 |            VIDEN = 1          |                VIDEN = 0                |
 
-Vertical Timing: Frame Frequency = 60 Hz
-0                              192           224           232           262
-|            [192 V]            |   [32 V]    |    [8 V]    |   [30 V]    |
-|<---------- 12.2 ms ---------->|<- 2.03 ms ->|<-- 508 us ->|<- 1.90 ms ->|
+Vertical Counting: clock = 15625 Hz (H line), Frame frequency = 60 Hz
+0                              192           224           228           262
+|            [192 V]            |   [32 V]    |    [4 V]    |   [34 V]    |
+|<---------- 12.2 ms ---------->|<- 2.03 ms ->|<-- 254 us ->|<- 2.16 ms ->|
 |-------------------------------+-------------+-------------+-------------|
 |          24 Character         |   Bottom    |    VSYNC    |     Top     |
 |             Lines             |   Margin    |             |   Margin    |
 |-------------------------------+-------------+-------------+-------------|
 |           VIDEN = 1           |                VIDEN = 0                |
-
-    0                              256   320 352   416
-  0 +-------------------------------+-----+---+-----+ 
-    |                               |     |   |     |
-    |   32 X 24 Character Screen    |     | H |     |
-    |             VIDEN             | Rgt |   | Lft |
-    |        (Video Enabled)        | Mrg | S | Mrg |
-    |                               |     | y |     |
-    |                               |     | n |     |
-192 +-------------------------------+     | c |     |
-    |                 Bottom Margin       |   |     |
-224 +-------------------------------------+---+-----+
-    |                    V Sync           |   |     |
-232 +-------------------------------------+---+-----+
-    |                  Top Margin         |   |     |
-262 +-------------------------------------+---+-----+
-
 */
