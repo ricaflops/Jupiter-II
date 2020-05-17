@@ -1,0 +1,112 @@
+Name     J-II_TIME ;
+PartNo   00 ;
+Date     02/26/2020 ;
+Revision 01 ;
+Designer Ricardo Fernandes Lopes ;
+Company   ;
+Assembly None ;
+Location  ;
+Device   g22v10 ;
+
+/* *************** INPUT PINS ******************** */
+PIN  1 = H5 ; /* Horizontal Video Counting */
+PIN  2 = H7 ; /* Horizontal Video Counting */
+PIN  3 = H6 ; /* Horizontal Video Counting */
+PIN  4 = H8 ; /* Horizontal Video Counting */
+PIN  5 = H2 ; /* Horizontal Video Counting */
+PIN  6 = H1 ; /* Horizontal Video Counting */
+PIN  7 = H0 ; /* Horizontal Video Counting */
+
+PIN  8 = V5 ; /* Vertical Video Counting */
+PIN  9 = V4 ; /* Vertical Video Counting */
+PIN 10 = V6 ; /* Vertical Video Counting */
+PIN 11 = V3 ; /* Vertical Video Counting */
+              /* pin 12 = GND     */
+PIN 13 = V1 ; /* Vertical Video Counting */
+PIN 14 = V2 ; /* Vertical Video Counting */
+PIN 15 = V8 ; /* Vertical Video Counting */
+PIN 16 = V7 ; /* Vertical Video Counting */
+
+/* *************** OUTPUT PINS ******************** */
+                  /* pin 24 = VCC */
+PIN 23 = BLANK  ; /* Video Blanking */
+PIN 22 = !HSYNC ; /* Horizontal Video Sync */
+PIN 21 = !VSYNC ; /* Vertical Video Sync (also Z80 !INT line) */
+PIN 20 = HRST   ; /* Line Count Reset (Horizontal) */
+PIN 19 = VRST   ; /* Field Count Reset (Vertical) */
+PIN 18 = RGTPIX ; /* Right Char Pixel */
+PIN 17 = VIDEN  ; /* Video Frame Enabled */
+
+/* _______________ EQUATIONS ______________________ */
+/* Horizontal Counter [H8..H0] */
+HSYNC  = H8 & !H7 & H6 & !H5 ;  /* Horizontal Sync pulse */
+/* HBLANK = H8 & !H7 & (H6 # H5) ; /* Video Line Blanking */
+HBLANK = H8 & !H7 & H6 ; /* Video Line Blanking */
+HRST   = H8 & H7 & H5 ;         /* Horizontal Counter Reset */
+/*   |      H[8..0]      | Horizontal Counting
+count| 8 7 6 5 4 3 2 1 0 |[length] Remarks
+-----+-------------------+------------------------
+   0 | 0 0 0 0 0 0 0 0 0 |[256] Begin line pixels stream
+ 256 | 1 0 0 0 0 0 0 0 0 |[ 32] end pixels & begin line right border
+ 320 | 1 0 1 0 0 0 0 0 0 |[ 32] Begin H sync pulse & line blanking & cEnd border
+ 352 | 1 0 1 1 0 0 0 0 0 |[ 32] End H sync & continue blanking
+ 384 | 1 1 0 0 0 0 0 0 0 |[ 32] End blanking & begin line left border
+ 416 | 1 1 0 1 0 0 0 0 0 | End border & Reset horizontal counter
+*/
+
+/* Vertical Counter [V8..V0] */
+VSYNC = V7 & V6 & V5 & !V4 & !V3 & !V2 ; /* Vertical Sync pulse */
+VBLANK = V7 & V6 & ( (V5 & !(V4 & V3)) # (!V5 & V4 & V3 & V2) ) ; /* Video Frame Blanking */
+VRST  = V8 & V2 & V1 ;                   /* Vertical Counting Reset */
+/*   |      V[8..0]      | Vertical Counting
+count| 8 7 6 5 4 3 2 1 0 |[length] Remarks
+-----+-------------------+------------------------
+   0 | 0 0 0 0 0 0 0 0 0 |[192] Begin frame active lines
+ 192 | 0 1 1 0 0 0 0 0 0 |[ 28] End active frame & begin bottom border
+ 220 | 0 1 1 0 1 1 1 0 0 |[  4] End border & begin V blanking
+ 224 | 0 1 1 1 0 0 0 0 0 |[  4] Begin V sync pulse & continue blanking
+ 228 | 0 1 1 1 0 0 1 0 0 |[ 20] End V sync & continue blanking
+ 248 | 0 1 1 1 1 1 0 0 0 |[ 14] End blanking & begin top border
+ 262 | 1 0 0 0 0 0 1 1 0 | End border & Reset vertical counter
+*/
+
+BLANK = HBLANK # VBLANK ;         /* Combined Video Blanking */
+RGTPIX = H2 & H1 & H0 ;           /* Right character pixel column*/
+VIDEN  = !H8 & !V8 & !(V7 & V6) ; /* Video frame active */
+
+/* NTSC Video: Vertical Sync = 60 Hz
+
+    0  Horiz counter           256      320 352      416
+  0 +---------------------------+--------+---+--------+ 
+V   |          32 X 24          |        | H |        |
+e c |     Character Screen      | Right  |   |  Left  |
+r n |           VIDEN           |        | s |        |
+t t |      (Video Active)       | Margin | y | Margin |
+192 +---------------------------+        | n |        |
+    |           Bottom Margin            | c |        |
+224 +------------------------------------+---+--------+
+    |              V Sync                |   |        |
+228 +------------------------------------+---+--------+
+    |            Top Margin              |   |        |
+262 +------------------------------------+---+--------+
+
+Horizontal Counting: clock = 6.55 MHz, Line frequency = 15625 Hz
+0                              256           320           352           416
+|           [256 H]             |    [64 H]   |   [32 H]    |   [64 H]    |
+|<----------- 39.1 us --------->|<- 9.77 us ->|<- 4.88 us ->|<- 9.77 us ->|
+|-------------------------------+-------------+-------------+-------------|
+|          32 Character         |    Right    |    HSYNC    |    Left     |
+|             Columns           |    Margin   |             |   Margin    |
+|-------------------------------+-------------+-------------+-------------|
+|            VIDEN = 1          |                VIDEN = 0                |
+
+Vertical Counting: clock = 15625 Hz (H line), Frame frequency = 60 Hz
+0                              192           224           228           262
+|            [192 V]            |   [32 V]    |    [4 V]    |   [34 V]    |
+|<---------- 12.2 ms ---------->|<- 2.03 ms ->|<-- 254 us ->|<- 2.16 ms ->|
+|-------------------------------+-------------+-------------+-------------|
+|          24 Character         |   Bottom    |    VSYNC    |     Top     |
+|             Lines             |   Margin    |             |   Margin    |
+|-------------------------------+-------------+-------------+-------------|
+|           VIDEN = 1           |                VIDEN = 0                |
+*/
