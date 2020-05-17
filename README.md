@@ -17,4 +17,4 @@ Tools used & file formats:
 * Designed with [Kicad](https://www.kicad-pcb.org/)
 * Programmable Logic Devices coded in CUPL language (compiled with WinCupl available for free at [Microchip](https://www.microchip.com/))
 
-For more information on Jupiter Ace visit [Jupiter Ace Resource Site](http://jupiter-ace.co.uk/)
+For more information on Jupiter Ace visit [The Jupiter Ace Resource Site](http://jupiter-ace.co.uk/)
