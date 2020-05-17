@@ -11,6 +11,7 @@ Main Differences from the original:
 * Two screen pages and two character sets (selected at video expansion connector)
 * Speaker/Mic outputs modified to match modern audio gear
 * Reset button
+* Inverted video option
 
 Tools/formats:
 * Designed with [Kicad](https://www.kicad-pcb.org/)
