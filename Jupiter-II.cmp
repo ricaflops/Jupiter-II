@@ -1,4 +1,92 @@
-Cmp-Mod V01 Created by PcbNew   date = 31/03/2020 22:43:21
+Cmp-Mod V01 Created by PcbNew   date = 18/05/2020 16:44:28
+
+BeginCmp
+TimeStamp = 5EC345A2
+Path = 
+Reference = REF**;
+ValeurCmp = Symbol_Barrel_Polarity;
+IdModule  = Symbols:Symbol_Barrel_Polarity;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EC3304B
+Path = /56995FEC/5EC5E42D
+Reference = C18;
+ValeurCmp = 1n8;
+IdModule  = Capacitors_SMD:C_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EC0C2B3
+Path = /56995FEF/5EE30E09
+Reference = R57;
+ValeurCmp = 10k;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EC094F1
+Path = /56995FEF/5ED7F901
+Reference = JP1;
+ValeurCmp = Jumper;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5E643DB0
+Path = /5F6C30B6
+Reference = U4;
+ValeurCmp = 74LS367;
+IdModule  = Housings_DIP:DIP-16_W7.62mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBE182A
+Path = /5EC476B6
+Reference = R56;
+ValeurCmp = 330;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EBE5697
+Path = /5EC480FD
+Reference = D11;
+ValeurCmp = 5V1;
+IdModule  = Diodes_THT:D_DO-35_SOD27_P2.54mm_Vertical_KathodeUp;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EB8C041
+Path = /56995FEF/5F0977C2
+Reference = R55;
+ValeurCmp = 47;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EB892A6
+Path = /56995FEF/5F04A727
+Reference = R54;
+ValeurCmp = 470;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EB88C33
+Path = /56995FEF/5EBD03D0
+Reference = Q2;
+ValeurCmp = BC817;
+IdModule  = TO_SOT_Packages_SMD:SOT-23;
+EndCmp
+
+BeginCmp
+TimeStamp = 5EB90F4B
+Path = /5EB7FB63
+Reference = R14;
+ValeurCmp = 1k;
+IdModule  = Resistors_SMD:R_0805_HandSoldering;
+EndCmp
 
 BeginCmp
 TimeStamp = 5E84044B
@@ -6,14 +94,6 @@ Path = /56995FEF/5EA412FE
 Reference = J6;
 ValeurCmp = Conn_02x15_Odd_Even;
 IdModule  = Socket_Strips:Socket_Strip_Straight_2x15_Pitch2.54mm;
-EndCmp
-
-BeginCmp
-TimeStamp = 5E840224
-Path = /56995FEF/5E9F0881
-Reference = D11;
-ValeurCmp = 1N914;
-IdModule  = Diodes_THT:D_DO-35_SOD27_P7.62mm_Horizontal;
 EndCmp
 
 BeginCmp
@@ -57,7 +137,7 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E724CA7
+TimeStamp = 5EB78A98
 Path = /56995FEF/5EAC96F8
 Reference = R16;
 ValeurCmp = 1k;
@@ -65,10 +145,10 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E724CA4
+TimeStamp = 5EB78854
 Path = /56995FEF/5EAC9700
 Reference = R15;
-ValeurCmp = 33k;
+ValeurCmp = 5k1;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
@@ -81,10 +161,10 @@ IdModule  = Sockets_MOLEX_KK-System:Socket_MOLEX-KK-RM2-54mm_Lock_3pin_straight;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E72A961
+TimeStamp = 5EC34BB8
 Path = /56995FEF/5EAC96E9
 Reference = C10;
-ValeurCmp = 47u;
+ValeurCmp = 10u;
 IdModule  = Capacitors_THT:CP_Radial_D6.3mm_P2.50mm;
 EndCmp
 
@@ -161,7 +241,7 @@ IdModule  = Diodes_THT:D_DO-35_SOD27_P7.62mm_Horizontal;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E644A1E
+TimeStamp = 5EB78993
 Path = /5F6C312E
 Reference = D4;
 ValeurCmp = 1N914;
@@ -209,19 +289,11 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E69D160
+TimeStamp = 5EB8F7CE
 Path = /5F6C316F
 Reference = R6;
 ValeurCmp = 10k;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
-EndCmp
-
-BeginCmp
-TimeStamp = 5E643DB0
-Path = /5F6C30B6
-Reference = U4;
-ValeurCmp = 74LS367;
-IdModule  = Housings_DIP:DIP-16_W7.62mm;
 EndCmp
 
 BeginCmp
@@ -265,7 +337,7 @@ IdModule  = Capacitors_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E75AC64
+TimeStamp = 5EC34745
 Path = /5F647A5B
 Reference = C4;
 ValeurCmp = 1u;
@@ -273,7 +345,7 @@ IdModule  = Capacitors_THT:CP_Radial_D6.3mm_P2.50mm;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E69DD9C
+TimeStamp = 5EBE5853
 Path = /5F647A28
 Reference = SW1;
 ValeurCmp = SW_Push;
@@ -457,7 +529,7 @@ IdModule  = Capacitors_SMD:C_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E7654D8
+TimeStamp = 5EBE575A
 Path = /5F6C306A
 Reference = C7;
 ValeurCmp = 47n;
@@ -473,7 +545,7 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E6FCBC3
+TimeStamp = 5EB8FDD0
 Path = /5F6C3070
 Reference = R12;
 ValeurCmp = 1k;
@@ -484,12 +556,12 @@ BeginCmp
 TimeStamp = 5E5ADF33
 Path = /5F6C3185
 Reference = R13;
-ValeurCmp = 12k;
+ValeurCmp = 5k1;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E69F6FA
+TimeStamp = 5EBE2BE3
 Path = /5F6C3064
 Reference = R11;
 ValeurCmp = 12k;
@@ -497,7 +569,7 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E5C271F
+TimeStamp = 5EBE39C6
 Path = /5E5E6B06
 Reference = J3;
 ValeurCmp = TAPE;
@@ -609,7 +681,7 @@ IdModule  = Capacitors_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E7D8116
+TimeStamp = 5EC34EF8
 Path = /56995FEF/621BDC56
 Reference = C17;
 ValeurCmp = 100n;
@@ -625,15 +697,7 @@ IdModule  = Capacitors_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E6A03AE
-Path = /56995FEF/60C3E9C1
-Reference = C21;
-ValeurCmp = 10u;
-IdModule  = Capacitors_THT:CP_Radial_D6.3mm_P2.50mm;
-EndCmp
-
-BeginCmp
-TimeStamp = 5E69F8B3
+TimeStamp = 5EB91D64
 Path = /56995FEC/60A2A3D1
 Reference = C24;
 ValeurCmp = 100n;
@@ -697,7 +761,7 @@ IdModule  = Housings_DIP:DIP-24_W7.62mm_Socket;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E69F801
+TimeStamp = 5EB8CE67
 Path = /5F6479CF
 Reference = C9;
 ValeurCmp = 2n2;
@@ -881,7 +945,7 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E5AE113
+TimeStamp = 5EC34237
 Path = /56995FEF/61805113
 Reference = R43;
 ValeurCmp = 1k;
@@ -905,18 +969,18 @@ IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E734AA9
+TimeStamp = 5E858F93
 Path = /56995FEF/60C20FE8
 Reference = R47;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
 BeginCmp
-TimeStamp = 5E627717
+TimeStamp = 5EB91BE1
 Path = /56995FEF/60C07A56
 Reference = R48;
-ValeurCmp = 1k;
+ValeurCmp = 1k5;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 
@@ -924,7 +988,7 @@ BeginCmp
 TimeStamp = 5E62EC10
 Path = /56995FEF/60C2138A
 Reference = R49;
-ValeurCmp = 220;
+ValeurCmp = 2k7;
 IdModule  = Resistors_SMD:R_0805_HandSoldering;
 EndCmp
 

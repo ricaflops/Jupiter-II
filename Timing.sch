@@ -384,10 +384,10 @@ Wire Wire Line
 	7500 2650 8250 2650
 Text GLabel 8250 2650 2    60   Output ~ 0
 RGTPIX
-Text GLabel 7850 2750 2    60   Output ~ 0
+Text GLabel 8750 2750 2    60   Output ~ 0
 VIDEN
 Wire Wire Line
-	7500 2750 7850 2750
+	7500 2750 8150 2750
 Text GLabel 7850 2250 2    60   Output ~ 0
 ~HSYNC
 Text Notes 8050 6300 0    60   ~ 0
@@ -441,6 +441,38 @@ Wire Wire Line
 Connection ~ 3900 2950
 Wire Wire Line
 	3900 2950 4050 2950
+Wire Wire Line
+	8150 2950 8150 2750
+Connection ~ 8150 2750
+Wire Wire Line
+	8150 2750 8750 2750
+Wire Wire Line
+	8150 3150 8150 3200
+$Comp
+L power:GNDD #PWR05
+U 1 1 5EC5A88F
+P 8150 3200
+F 0 "#PWR05" H 8150 2950 50  0001 C CNN
+F 1 "GNDD" H 8300 3200 50  0000 C CNN
+F 2 "" H 8150 3200 50  0001 C CNN
+F 3 "" H 8150 3200 50  0001 C CNN
+	1    8150 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5EC5E42D
+P 8150 3050
+AR Path="/5699553D/5EC5E42D" Ref="C?"  Part="1" 
+AR Path="/5EC5E42D" Ref="C?"  Part="1" 
+AR Path="/56995FEC/5EC5E42D" Ref="C18"  Part="1" 
+F 0 "C18" H 8160 3120 50  0000 L CNN
+F 1 "1n8" H 8160 2970 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 8150 3050 50  0001 C CNN
+F 3 "" H 8150 3050 50  0000 C CNN
+	1    8150 3050
+	1    0    0    -1  
+$EndComp
 Wire Bus Line
 	4150 1950 4150 2850
 Wire Bus Line
