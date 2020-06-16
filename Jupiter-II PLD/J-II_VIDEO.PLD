@@ -19,14 +19,14 @@ PIN  7 = !VRAM ;   /* Z80 CPU Video RAM Addressing */
 PIN  8 = !WR ;     /* Z80 CPU Write Enable */
 PIN  9 = A10 ;     /* Z80 CPU Address line */
 PIN 10 = A11 ;     /* Z80 CPU Address line */
-PIN 11 = OSC ;     /* Main Clock */
+PIN 11 = VCLK ;     /* Main Clock */
                    /* pin 12 = GND */
 PIN 13 = !WBKGND ; /* Select Black on White image */
 
 /* *************** OUTPUT PINS ******************** */
                    /* pin 24 = VCC */
 PIN 23 = INVCLK ;  /* Background Load: feeds BLGCLK input */
-PIN 22 = INV ;     /* Character Background */
+PIN 22 = BORDER ;  /* Frame Border */
 PIN 21 = LUMA ;    /* Video Luminance */
 PIN 20 = !SCRRAM ; /* Screen RAM Enable */
 PIN 19 = !CHRRAM ; /* Char Set RAM Enable */
@@ -34,10 +34,9 @@ PIN 18 = !CHRADR ; /* Char Set RAM CPU Addressing */
 PIN 17 = !VRAMWR ; /* Video RAM Write Enable */
 PIN 16 = !VLOAD ;  /* Video Shift Register Load */
 PIN 15 = !VHOLD ;  /* Video Priority mechanism */
-PIN 14 = VCLK ;    /* Video Clock */
+PIN 14 = INV ;     /* Character Background (nor connected) */
 
 /* _______________ EQUATIONS _____________________ */
-VCLK = !OSC ;                     /* Video Clock */
 CHRRAM = !(SCRADR & !A11) ;       /* Char Set RAM Enable */
 SCRRAM = !(SCRADR & CHRRAM) ;     /* Screen RAM Enable */
 CHRADR = !SCRRAM ;                /* Char Set RAM CPU Addressing */
@@ -53,4 +52,7 @@ INV.D = VIDEN & INVCHR ; /* Data    = Inverse Character flag */
 INV.AR = 'b'0 ;          /* Reset   = Reset not active */
 INV.SP = 'b'0 ;          /* Preseet = Preset not active */
 
-
+/* Video Border using a SR-type flip-flop: Q = !Q & SET # Q & !RST */
+BRDSET = RGTPIX & !VIDEN ;
+BRDRST = RGTPIX &  VIDEN ;
+BORDER = !BORDER & BRDSET # BORDER & !BRDRST ;
