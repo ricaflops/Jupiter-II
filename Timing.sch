@@ -334,7 +334,7 @@ Text Label 7600 2550 0    60   ~ 0
 VRST
 Text Label 7600 2450 0    60   ~ 0
 HRST
-Text GLabel 8250 2350 2    60   Output ~ 0
+Text GLabel 8400 2450 2    60   Output ~ 0
 ~VSYNC
 $Comp
 L rfl_pld:GAL22V10 U17
@@ -374,21 +374,21 @@ Wire Wire Line
 	7800 2850 7800 4000
 Wire Wire Line
 	7800 4000 6300 4000
-Text GLabel 8250 2150 2    60   Output ~ 0
+Text GLabel 8400 2100 2    60   Output ~ 0
 BLANK
 Wire Wire Line
-	7500 2250 7850 2250
+	7500 2250 8400 2250
 Wire Wire Line
 	3250 4150 3250 4200
 Wire Wire Line
 	7500 2650 8250 2650
-Text GLabel 8250 2650 2    60   Output ~ 0
+Text GLabel 8400 2600 2    60   Output ~ 0
 RGTPIX
-Text GLabel 8750 2750 2    60   Output ~ 0
+Text GLabel 8400 2750 2    60   Output ~ 0
 VIDEN
 Wire Wire Line
 	7500 2750 8150 2750
-Text GLabel 7850 2250 2    60   Output ~ 0
+Text GLabel 8400 2250 2    60   Output ~ 0
 ~HSYNC
 Text Notes 8050 6300 0    60   ~ 0
 Original Schematic  References:\nCNT0  = H0  : Character Pixel Column (0-7)\nCNT1  = H1  : Character Pixel Column (0-7)\nCNT2  = H2  : Character Pixel Column (0-7)\nCNT3  = H3  : Text Column (0-32)\nCNT4  = H4  : Text Column (0-32)\nCNT5  = H5  : Text Column (0-32)\nCNT6  = H6  : Text Column (0-32)\nCNT7  = H7  : Text Column (0-32)\nCNT8  = H8  : H Blanking, Sync, Reset\nCNT9  = V0  : Character Pixel Line (0-7)\nCNT10 = V1  : Character Pixel Line (0-7)\nCNT11 = V2  : Character Pixel Line (0-7)\nCNT12 = V3  : Text Line (0-23)\nCNT13 = V4  : Text Line (0-23)\nCNT14 = V5  : Text Line (0-23)\nCNT15 = V6  : Text Line (0-23)\nCNT16 = V7  : Text Line (0-23)\nCNT17 = V8  : V Blanking, Sync, Reset
@@ -445,7 +445,7 @@ Wire Wire Line
 	8150 2950 8150 2750
 Connection ~ 8150 2750
 Wire Wire Line
-	8150 2750 8750 2750
+	8150 2750 8400 2750
 Wire Wire Line
 	8150 3150 8150 3200
 $Comp
@@ -468,11 +468,23 @@ AR Path="/5EC5E42D" Ref="C?"  Part="1"
 AR Path="/56995FEC/5EC5E42D" Ref="C18"  Part="1" 
 F 0 "C18" H 8160 3120 50  0000 L CNN
 F 1 "1n8" H 8160 2970 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 8150 3050 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8150 3050 50  0001 C CNN
 F 3 "" H 8150 3050 50  0000 C CNN
 	1    8150 3050
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8250 2650 8250 2600
+Wire Wire Line
+	8250 2600 8400 2600
+Wire Wire Line
+	8250 2350 8250 2450
+Wire Wire Line
+	8250 2450 8400 2450
+Wire Wire Line
+	8250 2150 8250 2100
+Wire Wire Line
+	8250 2100 8400 2100
 Wire Bus Line
 	4150 1950 4150 2850
 Wire Bus Line
