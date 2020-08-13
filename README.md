@@ -19,14 +19,17 @@ For more information on the original Jupiter Ace computer and an extensive softw
 The majority of original software (if not all) shall be compatible with this project.
 
 ## The Jupiter-II Expansion
-See the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion) for adding:
+See the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion) project for adding:
 - 128K paged RAM
 - Stereo Programmable Sound Generator
 - Video Colour
 - Serial Interface
 - Screen and Character Generator paging
+- Expanded FORTH vocabulary
 
-## Jumpers
+![Jupiter-II color expansion](Jupiter-II_keyboard/Jupiter-II_color.jpg)
+
+# Jumpers
 
 Inverse Video
 - Not installed: White text on black background (default)
@@ -36,14 +39,14 @@ ROM image selection
 - Installed: Original Jupiter Ace 8K ROM image
 - Not Installed: Using the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion)
 
-## EPROM contents
+# EPROM contents
 There are two options (see **Jumpers** section):
 - Install a 8K EPROM (2764) with the original Jupiter Ace EPROM contents.
 - Install a 16K EPROM (27C128) with the original Jupiter Ace EPROM contents at the lower 8K block and the firmware of the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion) at the higher 8K block 
 
 The original Jupiter Ace 8K EPROM binary images can be found at [The Jupiter Ace Archive](https://www.jupiter-ace.co.uk/).
 
-## Connections
+# Connections
 
 ### Power Supply
 Connect a 7.5Vdc to 9 Vdc x 1A power supply. Center pin is positive.
