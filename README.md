@@ -7,25 +7,20 @@
 ## Main differences from the original Jupiter Ace
 * Buffered composite video output
 * Reset button
-* Inversed video selection
-* Paged screen and character set RAMs (selection at the video expansion connector)
-* Speaker/Mic outputs modified to match modern audio equipment impedance
+* Inversed video jumper selection
+* Two screen pages and two character sets area (selectable at the video expansion connector)
 * Reduced chip count with PLDs replacing several TTL logic
-* Pin headers at expansion connectors instead of board edge connector
 * Additional signals in expansion connectors
 
 For more information on the original Jupiter Ace computer and an extensive software collection visit [The Jupiter Ace Archive](http://jupiter-ace.co.uk/)
 
-The majority of original software (if not all) shall be compatible with this project.
-
 ## The Jupiter-II Expansion
 See the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion) project for adding:
-- 128K paged RAM
-- Stereo Programmable Sound Generator
 - Video Colour
+- Programmable Sound Generator
+- 128K paged RAM
 - Serial Interface
-- Screen and Character Generator paging
-- Expanded FORTH vocabulary
+- FORTH vocabulary extension (Color, Memory Paging, Sound Generator, etc.)
 
 ![Jupiter-II color expansion](Jupiter-II_color.jpg)
 
