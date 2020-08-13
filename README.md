@@ -27,7 +27,7 @@ See the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion
 - Screen and Character Generator paging
 - Expanded FORTH vocabulary
 
-![Jupiter-II color expansion](Jupiter-II_keyboard/Jupiter-II_color.jpg)
+![Jupiter-II color expansion](Jupiter-II_color.jpg)
 
 # Jumpers
 
