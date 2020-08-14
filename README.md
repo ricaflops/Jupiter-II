@@ -24,22 +24,17 @@ See the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion
 
 ![Jupiter-II color expansion](Jupiter-II_color.jpg)
 
-# Jumpers
+# Jumper Settings
 
-Inverse Video
-- Not installed: White text on black background (default)
-- Installed: Black text on white background (inversed)
+Inverse Video Jumper
+- Jumper installed: Black text on white background (inversed)
+- Jumper removed: White text on black background (default)
 
-ROM image selection
-- Installed: Original Jupiter Ace 8K ROM image
-- Not Installed: Using the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion)
+ROM image selection Jumper
+- Jumper installed: Original Jupiter Ace 8K ROM image
+- Jumper removed: Boot with the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion)
 
-# EPROM contents
-There are two options (see **Jumpers** section):
-- Install a 8K EPROM (2764) with the original Jupiter Ace EPROM contents.
-- Install a 16K EPROM (27C128) with the original Jupiter Ace EPROM contents at the lower 8K block and the firmware of the [Jupiter-II Expansion](https://github.com/ricaflops/Jupiter-II-Expansion) at the higher 8K block 
-
-The original Jupiter Ace 8K EPROM binary images can be found at [The Jupiter Ace Archive](https://www.jupiter-ace.co.uk/).
+The original Jupiter Ace 8K ROM image can be found at [The Jupiter Ace Archive](https://www.jupiter-ace.co.uk/).
 
 # Connections
 
@@ -84,15 +79,15 @@ Similar layout as the original Jupiter Ace with additional pins "-ROMSL" and "SP
 * pin 39:**D0** , pin 40:**D1**
 * pin 41:**D2** , pin 42:**D6**
 * pin 43:**D7** , pin 44:**-WE**
-* pin 45:**(n.c.)** , pin 46:**(n.c.)**
+* pin 45:(n.c.) , pin 46:(n.c.)
 * pin 47:**-ROMSL** , pin 48:**SPEAKER**
-* pin 49:**(n.c.)** , pin 50:**(n.c.)**
+* pin 49:(n.c.) , pin 50:(n.c.)
+
+(n.c.) means not connected
 
 **-ROMSL** *(in)* Disables internal ROM chip when connected to +5V
 
 **SPEAKER** *(out)* TTL level Speaker signal (BEEP)
-
-(n.c.) means not connected
 
 ### Video Expansion
 30 pins header connector (2x15 female).
