@@ -1,0 +1,18 @@
+Jupiter-II 16K ROM contains two images:
+- Lower  8K: Original Jupiter Ace ROM image.
+- Higher 8K: Patched image to call Expansion ROM initialization.
+
+A board jumper is provided to select which image to boot:
+- Jumpter installed: Original ROM image. Do not boot the Expansion ROM.
+- Jumper removed: Patched ROM image. Includes Expansion ROM booting.
+
+The patch is applied at address $008E of original ROM image:
+    008E: C3 00 C0 00
+
+Original code:
+    008E: ED 56      IM 1      ; Set Interrupt mode 1
+    0090: 18 09      JR $009B  ; Quit to FORTH
+
+Patched code:
+    008E: C3 00 C0   JP $C000  ; Redirect to XROM code
+    0091: 00         NOP       ; Do nothing
