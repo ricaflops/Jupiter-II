@@ -1,4 +1,4 @@
 (sym_lib_table
-  (lib (name rfl_memory)(type Legacy)(uri C:/Users/rrr_l/Documents/Projetos_Eletronica/KiCad/library/rfl_memory.lib)(options "")(descr ""))
-  (lib (name rfl_pld)(type Legacy)(uri C:/Users/rrr_l/Documents/Projetos_Eletronica/KiCad/library/rfl_pld.lib)(options "")(descr ""))
+  (lib (name rfl_memory)(type Legacy)(uri ${KIPRJMOD}/library/rfl_memory.lib)(options "")(descr ""))
+  (lib (name rfl_pld)(type Legacy)(uri ${KIPRJMOD}/library/rfl_pld.lib)(options "")(descr ""))
 )
