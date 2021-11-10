@@ -126,5 +126,5 @@ Similar layout as the original Jupiter Ace with some additional pins.
 **BLANK** *(out)* Video Blanking (retrace blanking)
 
 ## Tools used & file formats
-* Designed with [Kicad](https://www.kicad-pcb.org/)
+* Designed with [Kicad](https://www.kicad.org/)
 * Programmable Logic Devices coded in CUPL language (compiled with WinCupl available for free at [Microchip](https://www.microchip.com/))
